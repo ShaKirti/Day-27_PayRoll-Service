@@ -1,6 +1,8 @@
 package com.day27assignment;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -15,7 +17,7 @@ public class EmpPayRollService {
     public enum IOService {
         CONSOLE_IO, FILE_IO, DB_IO, REST_IO
     }
-    private static final String FILE_PATH = "C:\\Users\\shash";
+    private static final String FILE_PATH = "C:\\Users\\shash\\Shashank.txt";
     void welcomeMessage(){
         System.out.println("Welcome to Employee Pay Roll Service Program");
     }
@@ -104,7 +106,7 @@ public class EmpPayRollService {
 
             e.printStackTrace();
         }
-        System.out.println("\nReading Employee Payroll to console\n" + empPayRollDataList);
+        fileReader();
     }
 
     /**
@@ -119,6 +121,22 @@ public class EmpPayRollService {
             }
         } catch (IOException e1) {
             System.err.println("Problem encountered while creating a file");
+        }
+    }
+
+    /**
+     * method to read file
+     */
+    public void fileReader(){
+        try {
+            BufferedReader b = new BufferedReader(new FileReader("C:\\Users\\shash\\Shashank.txt"));
+            String s;
+            while ((s = b.readLine()) != null){
+                System.out.println(s);
+            }
+        }
+        catch (Exception e){
+            return;
         }
     }
 }
