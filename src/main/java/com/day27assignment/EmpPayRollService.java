@@ -48,7 +48,23 @@ public class EmpPayRollService {
             empPayRollService.readEmployeePayRollData();
             empPayRollService.printData(IOService.FILE_IO);
         }
+        System.out.println(empPayRollService.countEntries(IOService.CONSOLE_IO));
     }
+    /**
+     * method count entries
+     * @param consoleIo
+     * @return - number of entries
+     */
+    private long countEntries(IOService consoleIo) {
+        long entries = 0;
+        try {
+            entries = Files.lines(new File(FILE_PATH).toPath()).count();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return entries;
+    }
+
     /**
      * method to print data
      * @param fileIo
