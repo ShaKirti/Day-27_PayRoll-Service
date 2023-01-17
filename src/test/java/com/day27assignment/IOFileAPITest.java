@@ -60,7 +60,6 @@ public class IOFileAPITest {
                 .forEach(System.out::println);
 
     }
-
     /**
      * This method will list the items present in the directory
      * @throws IOException - exception thrown when an I/O error occurs
